@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: alphaflow-tts-engine
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
