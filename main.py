@@ -47,7 +47,8 @@ VOICE_MAP = {
 DEFAULT_VOICE = "en-US-AriaNeural"
 
 # Strip inline visual cues ([ZOOM], [OVERLAY: ...], [PATTERN INTERRUPT], [PiP], [ACTION]).
-CUE_RE = re.compile(r"\[(ZOOM|PATTERN INTERRUPT|OVERLAY|PiP|ACTION|HOOK)[^\]]*\]", re.IGNORECASE)
+# Universal visual-cue filter (SOP section 4): strip EVERY [bracketed] directive.
+CUE_RE = re.compile(r"\[[^\]]*\]")
 
 
 class Scene(BaseModel):
